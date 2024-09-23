@@ -1,33 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo.h                                            :+:      :+:    :+:   */
+/*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamichal <mamichal@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/17 17:51:07 by mamichal          #+#    #+#             */
-/*   Updated: 2024/09/23 15:53:13 by mamichal         ###   ########.fr       */
+/*   Created: 2024/09/23 15:52:27 by mamichal          #+#    #+#             */
+/*   Updated: 2024/09/23 15:59:00 by mamichal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHILO_H
-# define PHILO_H
+#include "../includes/philo.h"
 
-// INCLUDES
-//# include "../libft/libft.h"
-# include <stdbool.h>
-# include <errno.h>
-# include <sys/time.h>
-
-// TYPE DECLARATIONS
-typedef enum e_errors
+bool parse(t_table *table, int argc, char **argv)
 {
-	OK = 0,
-	MALLOC_ERROR = 1,
-	NOT_ENOUGH_ARGS = 2,
-	ERR_ARGS = 3,
-}				t_errors;
+	if (argc != 5 || argc != 6)
+		return (false);
 
-// FUNCTION DECLARATIONS
-
-#endif
+}
