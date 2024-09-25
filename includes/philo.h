@@ -6,7 +6,7 @@
 /*   By: mamichal <mamichal@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 17:51:07 by mamichal          #+#    #+#             */
-/*   Updated: 2024/09/23 15:53:13 by mamichal         ###   ########.fr       */
+/*   Updated: 2024/09/25 18:11:39 by mamichal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,15 @@
 
 // INCLUDES
 //# include "../libft/libft.h"
+# include <stdlib.h>
+# include <stdio.h>
 # include <stdbool.h>
-# include <errno.h>
+# include <unistd.h>
 # include <sys/time.h>
+# include <pthread.h>
+
+// static defines
+# define PHILO_MAX 300
 
 // TYPE DECLARATIONS
 typedef enum e_errors
