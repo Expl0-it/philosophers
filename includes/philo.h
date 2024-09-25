@@ -46,6 +46,18 @@ typedef struct s_philo
 	pthread_mutex_t	*l_fork;
 
 }				t_philo;
+
+typedef struct s_table
+{
+	size_t	time_to_die;
+	size_t	time_to_eat;
+	size_t	time_to_sleep;
+	size_t	time_start;
+	int		philos_count;
+	int		meal_count;
+	bool	dead_flag;
+}				t_table;
+
 // FUNCTION DECLARATIONS
 
 #endif
