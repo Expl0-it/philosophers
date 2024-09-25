@@ -34,6 +34,18 @@ typedef enum e_errors
 	ERR_ARGS = 3,
 }				t_errors;
 
+typedef struct s_philo
+{
+	pthread_t		thread;
+	int				id;
+	int				meals_eaten;
+	bool			*dead;
+	bool			eating;
+	size_t			last_meal;
+	pthread_mutex_t	*r_fork;
+	pthread_mutex_t	*l_fork;
+
+}				t_philo;
 // FUNCTION DECLARATIONS
 
 #endif
