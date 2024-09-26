@@ -6,7 +6,7 @@
 /*   By: mamichal <mamichal@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 17:51:07 by mamichal          #+#    #+#             */
-/*   Updated: 2024/09/26 11:04:59 by mamichal         ###   ########.fr       */
+/*   Updated: 2024/09/26 13:58:33 by mamichal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,5 +66,11 @@ typedef struct s_table
 }				t_table;
 
 // FUNCTION DECLARATIONS
+
+// utils.c
+int		ft_atoi(const char *nptr);
+
+// check_input.c
+bool	check_input(int argc, char **argv);
 
 #endif
