@@ -28,7 +28,7 @@ static bool	check_content(char *arg)
 
 bool	check_input(int argc, char **argv)
 {
-	if (argc != 5 || argc != 6)
+	if (argc != 5 && argc != 6)
 		return (write(2, "Ivalid number of arguments\n", 27), false);
 	if (ft_atoi(argv[1]) > PHILO_MAX || ft_atoi(argv[1]) <= 0
 		|| check_content(argv[1]) == false)
