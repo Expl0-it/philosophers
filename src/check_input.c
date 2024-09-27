@@ -19,7 +19,7 @@ static bool	check_content(char *arg)
 	i = 0;
 	while (0 != arg[i])
 	{
-		if (arg[i] < '0' && arg[i] > '9')
+		if (arg[i] < '0' || arg[i] > '9')
 			return (false);
 		i++;
 	}
