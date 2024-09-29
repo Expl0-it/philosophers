@@ -6,7 +6,7 @@
 /*   By: mamichal <mamichal@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 17:51:07 by mamichal          #+#    #+#             */
-/*   Updated: 2024/09/26 13:58:33 by mamichal         ###   ########.fr       */
+/*   Updated: 2024/09/29 16:18:45 by mamichal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,36 +39,33 @@ typedef struct s_fork
 	int				fork_id;
 }				t_fork;
 
+typedef struct s_table t_table;
+
 typedef struct s_philo
 {
 	pthread_t		thread;
 	int				id;
 	int				meals_eaten;
-	bool			*dead;
+	bool			full;
 	bool			eating;
 	size_t			last_meal;
-	pthread_mutex_t	*r_fork;
-	pthread_mutex_t	*l_fork;
-	pthread_mutex_t	*write_lock;
-	pthread_mutex_t	*dead_lock;
-	pthread_mutex_t	*meal_lock;
-	struct s_table	*table;
+	t_fork			*r_fork;
+	t_fork			*l_fork;
+	t_table			*table;
 }				t_philo;
 
-typedef struct s_table
+struct s_table
 {
+	int				philo_count;
 	size_t			time_to_die;
 	size_t			time_to_eat;
 	size_t			time_to_sleep;
+	int				meals_limit;
 	size_t			time_start;
-	int				philos_count;
-	int				meal_count;
-	bool			dead_flag;
-	pthread_mutex_t	write_lock;
-	pthread_mutex_t	dead_lock;
-	pthread_mutex_t	meal_lock;
+	bool			end_flag;
+	t_fork			forks[PHILO_MAX];
 	t_philo			*philos;
-}				t_table;
+};
 
 // FUNCTION DECLARATIONS
 
