@@ -33,6 +33,12 @@ typedef enum e_errors
 	INVALID_ARGS = 2,
 }				t_errors;
 
+typedef struct s_fork
+{
+	pthread_mutex_t	fork;
+	int				fork_id;
+}				t_fork;
+
 typedef struct s_philo
 {
 	pthread_t		thread;
