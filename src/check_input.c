@@ -6,7 +6,7 @@
 /*   By: mamichal <mamichal@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 15:52:27 by mamichal          #+#    #+#             */
-/*   Updated: 2024/09/29 16:14:54 by mamichal         ###   ########.fr       */
+/*   Updated: 2024/09/29 16:25:43 by mamichal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,6 @@ bool	check_input(int argc, char **argv)
 		return (printf("Invalid time to sleep\n"), false);
 	if (NULL != argv[5] && (ft_atoi(argv[5]) < 0
 			|| false == check_content(argv[5])))
-		return (printf("Invalid times philos should eat\n"), false);
+		return (printf("Invalid number of times philos should eat\n"), false);
 	return (true);
 }
