@@ -23,15 +23,14 @@
 # include <pthread.h>
 
 // static defines
-# define PHILO_MAX 300
+# define PHILO_MAX 200
 
 // TYPE DECLARATIONS
 typedef enum e_errors
 {
 	OK = 0,
 	MALLOC_ERROR = 1,
-	NOT_ENOUGH_ARGS = 2,
-	ERR_ARGS = 3,
+	INVALID_ARGS = 2,
 }				t_errors;
 
 typedef struct s_philo
