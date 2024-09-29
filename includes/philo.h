@@ -6,7 +6,7 @@
 /*   By: mamichal <mamichal@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 17:51:07 by mamichal          #+#    #+#             */
-/*   Updated: 2024/09/29 16:26:09 by mamichal         ###   ########.fr       */
+/*   Updated: 2024/09/29 18:37:32 by mamichal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ struct s_table
 	size_t			time_start;
 	bool			end_flag;
 	t_fork			forks[PHILO_MAX];
-	t_philo			*philos;
+	t_philo			philos[PHILO_MAX];
 };
 
 // FUNCTION DECLARATIONS
