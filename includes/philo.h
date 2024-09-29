@@ -6,7 +6,7 @@
 /*   By: mamichal <mamichal@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 17:51:07 by mamichal          #+#    #+#             */
-/*   Updated: 2024/09/29 18:37:32 by mamichal         ###   ########.fr       */
+/*   Updated: 2024/09/29 19:41:00 by mamichal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,5 +74,6 @@ int		ft_atoi(const char *nptr);
 
 // check_input.c
 bool	check_input(int argc, char **argv);
+void	parse(t_table p_table, char **argv);
 
 #endif

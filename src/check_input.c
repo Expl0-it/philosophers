@@ -6,7 +6,7 @@
 /*   By: mamichal <mamichal@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 15:52:27 by mamichal          #+#    #+#             */
-/*   Updated: 2024/09/29 16:25:43 by mamichal         ###   ########.fr       */
+/*   Updated: 2024/09/29 19:40:32 by mamichal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,16 @@ bool	check_input(int argc, char **argv)
 			|| false == check_content(argv[5])))
 		return (printf("Invalid number of times philos should eat\n"), false);
 	return (true);
+}
+
+void	parse(t_table p_table, char **argv)
+{
+	p_table.philo_count = ft_atoi(argv[1]);
+	p_table.time_to_die = ft_atoi(argv[2]) * 1e3;
+	p_table.time_to_eat = ft_atoi(argv[3]) * 1e3;
+	p_table.time_to_sleep = ft_atoi(argv[4]) * 1e3;
+	if (NULL != argv[5])
+		p_table.meals_limit = ft_atoi(argv[5]);
+	else
+		p_table.meals_limit = -1;
 }
