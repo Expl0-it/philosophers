@@ -6,11 +6,13 @@
 /*   By: mamichal <mamichal@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 15:52:27 by mamichal          #+#    #+#             */
-/*   Updated: 2024/09/26 12:12:39 by mamichal         ###   ########.fr       */
+/*   Updated: 2024/09/30 10:42:35 by mamichal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo.h"
+#include <bits/pthreadtypes.h>
+#include <pthread.h>
 
 /** @brief Convert a string to an integer.
  *
@@ -43,4 +45,22 @@ int	ft_atoi(const char *nptr)
 		nptr++;
 	}
 	return (num * minus);
+}
+
+bool	handle_mutex(pthread_mutex_t *mutex, t_thread_code code)
+{
+	int	ret;
+
+	ret = -1;
+	if (INIT == code)
+		ret = pthread_mutex_init(mutex, NULL);
+	else if (LOCK == code)
+		ret = pthread_mutex_lock(mutex);
+	else if (UNLOCK == code)
+		ret = pthread_mutex_unlock(mutex);
+	else if (DESTROY)
+		ret = pthread_mutex_destroy(mutex);
+	if (0 == ret)
+		return (true);
+	return (false);
 }

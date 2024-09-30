@@ -6,7 +6,7 @@
 /*   By: mamichal <mamichal@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 17:51:07 by mamichal          #+#    #+#             */
-/*   Updated: 2024/09/30 09:59:32 by mamichal         ###   ########.fr       */
+/*   Updated: 2024/09/30 10:19:13 by mamichal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,17 @@ typedef enum e_errors
 	MALLOC_ERROR = 1,
 	INVALID_ARGS = 2,
 }				t_errors;
+
+typedef enum e_thread_code
+{
+	INIT,
+	CREATE,
+	LOCK,
+	UNLOCK,
+	JOIN,
+	DESTROY,
+	DETACH,
+}			t_thread_code;
 
 typedef struct s_fork
 {
