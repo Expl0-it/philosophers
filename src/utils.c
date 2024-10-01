@@ -6,7 +6,7 @@
 /*   By: mamichal <mamichal@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 15:52:27 by mamichal          #+#    #+#             */
-/*   Updated: 2024/09/30 10:42:35 by mamichal         ###   ########.fr       */
+/*   Updated: 2024/10/01 10:29:29 by mamichal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,3 +65,19 @@ bool	handle_mutex(pthread_mutex_t *mutex, t_thread_code code)
 	return (false);
 }
 
+bool	handle_thread(pthread_t *thread, void *(*routine)(void *),
+				void *data, t_thread_code code)
+{
+	int	thd_ret;
+
+	thd_ret = -1;
+	if (CREATE == code)
+		thd_ret = pthread_create(thread, NULL, routine, data);
+	else if (JOIN == code)
+		thd_ret = pthread_join(*thread, NULL);
+	else if (DETACH == code)
+		thd_ret = pthread_detach(*thread);
+	if (0 == thd_ret)
+		return (true);
+	return (false);
+}
