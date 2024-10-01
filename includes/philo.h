@@ -6,7 +6,7 @@
 /*   By: mamichal <mamichal@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 17:51:07 by mamichal          #+#    #+#             */
-/*   Updated: 2024/10/01 11:47:12 by mamichal         ###   ########.fr       */
+/*   Updated: 2024/10/01 15:25:32 by mamichal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ typedef struct s_philo
 	size_t			last_meal;
 	t_fork			*r_fork;
 	t_fork			*l_fork;
-	t_table			*table;
+	t_table			*p_table;
 }				t_philo;
 
 struct s_table
