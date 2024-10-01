@@ -6,13 +6,11 @@
 /*   By: mamichal <mamichal@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 15:52:27 by mamichal          #+#    #+#             */
-/*   Updated: 2024/10/01 10:29:29 by mamichal         ###   ########.fr       */
+/*   Updated: 2024/10/01 11:30:45 by mamichal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo.h"
-#include <bits/pthreadtypes.h>
-#include <pthread.h>
 
 /** @brief Convert a string to an integer.
  *

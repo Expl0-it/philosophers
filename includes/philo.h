@@ -6,7 +6,7 @@
 /*   By: mamichal <mamichal@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 17:51:07 by mamichal          #+#    #+#             */
-/*   Updated: 2024/09/30 10:19:13 by mamichal         ###   ########.fr       */
+/*   Updated: 2024/10/01 11:47:12 by mamichal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,9 @@ struct s_table
 
 // utils.c
 int		ft_atoi(const char *nptr);
+bool	handle_mutex(pthread_mutex_t *mutex, t_thread_code code);
+bool	handle_thread(pthread_t *thread, void *(*routine)(void *),
+			void *data, t_thread_code code);
 
 // check_input.c
 bool	check_input(int argc, char **argv);
