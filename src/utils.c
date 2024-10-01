@@ -49,18 +49,19 @@ int	ft_atoi(const char *nptr)
 
 bool	handle_mutex(pthread_mutex_t *mutex, t_thread_code code)
 {
-	int	ret;
+	int	mtx_ret;
 
-	ret = -1;
+	mtx_ret = -1;
 	if (INIT == code)
-		ret = pthread_mutex_init(mutex, NULL);
+		mtx_ret = pthread_mutex_init(mutex, NULL);
 	else if (LOCK == code)
-		ret = pthread_mutex_lock(mutex);
+		mtx_ret = pthread_mutex_lock(mutex);
 	else if (UNLOCK == code)
-		ret = pthread_mutex_unlock(mutex);
+		mtx_ret = pthread_mutex_unlock(mutex);
 	else if (DESTROY)
-		ret = pthread_mutex_destroy(mutex);
-	if (0 == ret)
+		mtx_ret = pthread_mutex_destroy(mutex);
+	if (0 == mtx_ret)
 		return (true);
 	return (false);
 }
+
