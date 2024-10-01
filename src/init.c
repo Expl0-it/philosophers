@@ -27,3 +27,10 @@ static bool	fork_init(t_table *p_table)
 	return (true);
 }
 
+bool	data_init(t_table *p_table)
+{
+	p_table->end_flag = false;
+	if (false == fork_init(p_table))
+		return (false);
+	return (true);
+}
