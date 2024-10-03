@@ -41,13 +41,13 @@ static bool	philo_init(t_table *p_table)
 	while (i < p_table->philo_count)
 	{
 		philo = &p_table->philos[i];
+		philo->p_table = p_table;
 		philo->id = i;
 		philo->full = false;
 		philo->meals_eaten = 0;
 		philo->p_table = p_table;
 		philo->eating = false;
 		philo->last_meal = -1;
-		philo->p_table = p_table;
 		// TODO: ASSIGN FORKS
 		i++;
 	}
