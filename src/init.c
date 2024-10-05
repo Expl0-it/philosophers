@@ -6,7 +6,7 @@
 /*   By: mamichal <mamichal@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 09:57:07 by mamichal          #+#    #+#             */
-/*   Updated: 2024/10/02 15:01:56 by mamichal         ###   ########.fr       */
+/*   Updated: 2024/10/05 17:43:40 by mamichal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,23 @@ static void assign_forks(t_philo *philo, t_fork *forks, int philo_position)
 
 	philo_count = philo->p_table->philo_count;
 	philo->r_fork = &forks[philo_position];
+	philo->l_fork = &forks[(philo_position + 1) % philo_count];
 
+	/*
+	// NOTE: Even odd fork assigment
+	// TODO: Change naming to first fork, second fork
+
+	if (0 == philo->id % 2)
+	{
+		philo->r_fork = &forks[philo_position];
+		philo->l_fork = &forks[(philo_position + 1) % philo_count];
+	}
+	else
+	{
+		philo->l_fork = &forks[philo_position];
+		philo->r_fork = &forks[(philo_position + 1) % philo_count];
+	}
+	*/
 }
 
 static bool	philo_init(t_table *p_table)
