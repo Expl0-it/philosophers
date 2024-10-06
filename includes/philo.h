@@ -6,7 +6,7 @@
 /*   By: mamichal <mamichal@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 17:51:07 by mamichal          #+#    #+#             */
-/*   Updated: 2024/10/01 15:25:32 by mamichal         ###   ########.fr       */
+/*   Updated: 2024/10/06 10:50:13 by mamichal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ struct s_table
 	int				meals_limit;
 	size_t			time_start;
 	bool			end_flag;
+	bool			threads_ready;
 	t_fork			forks[PHILO_MAX];
 	t_philo			philos[PHILO_MAX];
 };
