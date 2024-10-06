@@ -6,7 +6,7 @@
 /*   By: mamichal <mamichal@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 09:57:07 by mamichal          #+#    #+#             */
-/*   Updated: 2024/10/05 18:24:10 by mamichal         ###   ########.fr       */
+/*   Updated: 2024/10/06 11:03:14 by mamichal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,9 @@ static bool	philo_init(t_table *p_table)
 		philo->eating = false;
 		philo->last_meal = -1;
 		assign_forks(philo, p_table->forks, i);
-		// TODO: INIT THREADS?
+		// NOTE: Not sure if i shall CREATE THREADS here?
+		if (false == handle_thread(philo->thread, philo_routine, philo, CREATE))
+			return (false);
 		i++;
 	}
 	return (true);
@@ -78,6 +80,7 @@ static bool	philo_init(t_table *p_table)
 bool	data_init(t_table *p_table)
 {
 	p_table->end_flag = false;
+	p_table->threads_ready = false;
 	if (false == fork_init(p_table))
 		return (false);
 	if (false == philo_init(p_table))
