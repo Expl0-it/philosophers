@@ -6,7 +6,7 @@
 /*   By: mamichal <mamichal@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 15:52:27 by mamichal          #+#    #+#             */
-/*   Updated: 2024/10/01 11:30:45 by mamichal         ###   ########.fr       */
+/*   Updated: 2024/10/06 11:14:47 by mamichal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	ft_atoi(const char *nptr)
 	return (num * minus);
 }
 
-bool	handle_mutex(pthread_mutex_t *mutex, t_thread_code code)
+bool	handle_mutex(pthread_mutex_t *mutex, t_mutex_code code)
 {
 	int	mtx_ret;
 

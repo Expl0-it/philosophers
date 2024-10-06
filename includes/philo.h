@@ -6,7 +6,7 @@
 /*   By: mamichal <mamichal@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 17:51:07 by mamichal          #+#    #+#             */
-/*   Updated: 2024/10/06 10:50:13 by mamichal         ###   ########.fr       */
+/*   Updated: 2024/10/06 11:15:20 by mamichal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,18 @@ typedef enum e_errors
 
 typedef enum e_thread_code
 {
-	INIT,
 	CREATE,
-	LOCK,
-	UNLOCK,
 	JOIN,
-	DESTROY,
 	DETACH,
 }			t_thread_code;
+
+typedef enum e_mutex_code
+{
+	INIT,
+	LOCK,
+	UNLOCK,
+	DESTROY,
+}			t_mutex_code;
 
 typedef struct s_fork
 {
