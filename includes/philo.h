@@ -79,6 +79,7 @@ struct s_table
 	size_t			time_start;
 	bool			end_flag;
 	bool			threads_ready;
+	pthread_mutex_t	table_mtx;
 	t_fork			forks[PHILO_MAX];
 	t_philo			philos[PHILO_MAX];
 };
