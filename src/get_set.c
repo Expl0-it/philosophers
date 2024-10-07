@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   getters_setters.c                                  :+:      :+:    :+:   */
+/*   get_set.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamichal <mamichal@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 08:56:06 by mamichal          #+#    #+#             */
-/*   Updated: 2024/10/07 09:24:05 by mamichal         ###   ########.fr       */
+/*   Updated: 2024/10/07 12:34:51 by mamichal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,9 @@ bool	set_bool(pthread_mutex_t *mtx, bool *dest, bool value)
 	if (false == handle_mutex(mtx, UNLOCK))
 		return (false);
 	return (true);
+}
+
+bool	get_end(t_table *table)
+{
+	return (get_bool(&table->table_mtx, &table->end_flag));
 }
