@@ -6,11 +6,21 @@
 /*   By: mamichal <mamichal@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 18:08:42 by mamichal          #+#    #+#             */
-/*   Updated: 2024/10/08 11:14:28 by mamichal         ###   ########.fr       */
+/*   Updated: 2024/10/08 12:13:30 by mamichal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo.h"
+
+void	*philo_routine(void *data)
+{
+	t_philo *philo;
+
+	philo = (t_philo *)data;
+	wait_threads(philo->p_table);
+	// TODO: Set last meal time
+	return (NULL);
+}
 
 static bool	create_threads(t_table *p_table)
 {
@@ -20,8 +30,22 @@ static bool	create_threads(t_table *p_table)
 
 	while (++i < p_table->philo_count)
 	{
-		if (false == handle_thread(p_table->philos[i].thread, \
+		if (false == handle_thread(&p_table->philos[i].thread, \
 				philo_routine, &p_table->philos[i], CREATE))
+			return (false);
+		i++;
+	}
+	return (true);
+}
+
+static bool	join_threads(t_table *p_table)
+{
+	int	i;
+
+	i = 0;
+	while (i < p_table->philo_count)
+	{
+		if (false == handle_thread(&p_table->philos[i].thread, NULL, NULL, JOIN))
 			return (false);
 		i++;
 	}
@@ -38,6 +62,11 @@ bool	dinner_start(t_table *p_table)
 	{
 		if (false == create_threads(p_table))
 			return (false);
-
+		p_table->time_start = get_time(MILLISECOND);
+		if (-1 == p_table->time_start)
+			return (false);
+		set_bool(&p_table->table_mtx, &p_table->threads_ready, true);
+		join_threads(p_table);
 	}
+	return (true);
 }
