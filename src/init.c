@@ -6,7 +6,7 @@
 /*   By: mamichal <mamichal@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 09:57:07 by mamichal          #+#    #+#             */
-/*   Updated: 2024/10/06 11:22:54 by mamichal         ###   ########.fr       */
+/*   Updated: 2024/10/08 10:44:20 by mamichal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,11 +81,11 @@ bool	data_init(t_table *p_table)
 {
 	p_table->end_flag = false;
 	p_table->threads_ready = false;
-	if (false == handle_mutex(&p_table->table_mtx, INIT))
-		return (false);
 	if (false == fork_init(p_table))
 		return (false);
 	if (false == philo_init(p_table))
+		return (false);
+	if (false == handle_mutex(&p_table->table_mtx, INIT))
 		return (false);
 	return (true);
 }
