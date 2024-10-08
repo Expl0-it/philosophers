@@ -6,7 +6,7 @@
 /*   By: mamichal <mamichal@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 17:51:07 by mamichal          #+#    #+#             */
-/*   Updated: 2024/10/06 11:22:12 by mamichal         ###   ########.fr       */
+/*   Updated: 2024/10/08 10:42:45 by mamichal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@
 typedef enum e_errors
 {
 	OK = 0,
-	MALLOC_ERROR = 1,
-	INVALID_ARGS = 2,
+	INVALID_ARGS = 1,
+	INIT_ERROR = 2,
 }				t_errors;
 
 typedef enum e_thread_code
@@ -95,5 +95,15 @@ bool	handle_thread(pthread_t *thread, void *(*routine)(void *),
 // check_input.c
 bool	check_input(int argc, char **argv);
 void	parse(t_table *p_table, char **argv);
+
+// get_set.c
+int		get_int(pthread_mutex_t *mtx, int *source);
+bool	set_int(pthread_mutex_t *mtx, int *dest, int value);
+bool	get_bool(pthread_mutex_t *mtx, bool *source);
+bool	set_bool(pthread_mutex_t *mtx, bool *dest, bool value);
+bool	get_end(t_table *table);
+
+// init.c
+bool	data_init(t_table *p_table);
 
 #endif
