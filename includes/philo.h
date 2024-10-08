@@ -6,7 +6,7 @@
 /*   By: mamichal <mamichal@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 17:51:07 by mamichal          #+#    #+#             */
-/*   Updated: 2024/10/08 10:42:45 by mamichal         ###   ########.fr       */
+/*   Updated: 2024/10/08 12:02:24 by mamichal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,13 @@ typedef enum e_mutex_code
 	UNLOCK,
 	DESTROY,
 }			t_mutex_code;
+
+typedef enum e_time_code
+{
+	SECOND,
+	MILLISECOND,
+	MICROSECOND,
+}			t_time_code;
 
 typedef struct s_fork
 {
@@ -105,5 +112,11 @@ bool	get_end(t_table *table);
 
 // init.c
 bool	data_init(t_table *p_table);
+
+// synchro.c
+void	wait_threads(t_table *p_table);
+
+// time.c
+long	get_time(t_time_code time_code);
 
 #endif
