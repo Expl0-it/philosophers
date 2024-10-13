@@ -6,7 +6,7 @@
 /*   By: mamichal <mamichal@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 09:57:07 by mamichal          #+#    #+#             */
-/*   Updated: 2024/10/13 16:03:13 by mamichal         ###   ########.fr       */
+/*   Updated: 2024/10/13 17:01:22 by mamichal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,8 @@ static bool	philo_init(t_table *p_table)
 		philo->p_table = p_table;
 		philo->eating = false;
 		philo->last_meal = -1;
+		if (false == handle_mutex(&philo->philo_mtx, INIT))
+			return (false);
 		assign_forks(philo, p_table->forks, i);
 		i++;
 	}
