@@ -60,8 +60,8 @@ typedef enum e_philo_status
 	EATING,
 	SLEEPING,
 	THINGKING,
-	TOOK_1st_FORK,
-	TOOK_2nd_FORK,
+	TOOK_1_FORK,
+	TOOK_2_FORK,
 	DEAD,
 }			t_philo_status;
 

@@ -6,7 +6,7 @@
 /*   By: mamichal <mamichal@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 13:38:17 by mamichal          #+#    #+#             */
-/*   Updated: 2024/10/13 15:49:30 by mamichal         ###   ########.fr       */
+/*   Updated: 2024/10/13 16:17:59 by mamichal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ bool	write_philo_status(t_philo *philo, t_philo_status status)
 	if (false == handle_mutex(&philo->p_table->write_mtx, LOCK))
 		return (false);
 	elapsed = get_time(MILLISECOND - philo->p_table->time_start);
-	if ((TOOK_1st_FORK == status || TOOK_2nd_FORK == status)
+	if ((TOOK_1_FORK == status || TOOK_2_FORK == status)
 			&& false == get_end(philo->p_table))
 		printf("%-6ld %d has taken a fork\n", elapsed, philo->id);
 	else if (EATING == status && false == get_end(philo->p_table))
