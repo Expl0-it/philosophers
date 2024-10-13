@@ -6,7 +6,7 @@
 /*   By: mamichal <mamichal@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 18:08:42 by mamichal          #+#    #+#             */
-/*   Updated: 2024/10/08 12:13:30 by mamichal         ###   ########.fr       */
+/*   Updated: 2024/10/13 13:37:40 by mamichal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,15 @@
 
 void	*philo_routine(void *data)
 {
-	t_philo *philo;
+	t_philo	*philo;
 
 	philo = (t_philo *)data;
 	wait_threads(philo->p_table);
 	// TODO: Set last meal time
+	while (false == get_end(philo->p_table))
+	{
+
+	}
 	return (NULL);
 }
 
@@ -27,7 +31,6 @@ static bool	create_threads(t_table *p_table)
 	int	i;
 
 	i = 0;
-
 	while (++i < p_table->philo_count)
 	{
 		if (false == handle_thread(&p_table->philos[i].thread, \
@@ -45,7 +48,8 @@ static bool	join_threads(t_table *p_table)
 	i = 0;
 	while (i < p_table->philo_count)
 	{
-		if (false == handle_thread(&p_table->philos[i].thread, NULL, NULL, JOIN))
+		if (false == handle_thread(&p_table->philos[i].thread, \
+				NULL, NULL, JOIN))
 			return (false);
 		i++;
 	}
