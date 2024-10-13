@@ -6,7 +6,7 @@
 /*   By: mamichal <mamichal@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 17:51:07 by mamichal          #+#    #+#             */
-/*   Updated: 2024/10/13 16:59:11 by mamichal         ###   ########.fr       */
+/*   Updated: 2024/10/13 17:52:53 by mamichal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ typedef enum e_errors
 	OK = 0,
 	INVALID_ARGS = 1,
 	INIT_ERROR = 2,
+	DINNER_ERROR = 3,
 }				t_errors;
 
 typedef enum e_thread_code
@@ -138,5 +139,13 @@ void	precise_usleep(long usec, t_table *p_table);
 
 // write.c
 bool	write_philo_status(t_philo *philo, t_philo_status status);
+
+// dinner.c
+bool	dinner_start(t_table *p_table);
+
+// philo_actions.c
+bool	philo_sleep(t_philo *philo);
+bool	philo_eat(t_philo *philo);
+bool	philo_think(t_philo *philo);
 
 #endif
