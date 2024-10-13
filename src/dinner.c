@@ -22,6 +22,11 @@ void	*philo_routine(void *data)
 	while (false == get_end(philo->p_table))
 	{
 
+		if (true == philo->full) // TODO: THread safe
+			break ;
+		philo_think(philo);
+		philo_eat(philo);
+		philo_sleep(philo);
 	}
 	return (NULL);
 }
