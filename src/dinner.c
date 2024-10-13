@@ -6,7 +6,7 @@
 /*   By: mamichal <mamichal@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 18:08:42 by mamichal          #+#    #+#             */
-/*   Updated: 2024/10/13 18:10:28 by mamichal         ###   ########.fr       */
+/*   Updated: 2024/10/13 18:28:21 by mamichal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,10 @@ void	*philo_routine(void *data)
 	while (false == get_end(philo->p_table))
 	{
 		if (true == philo->full) // TODO: THread safe
+		{
+			philo_think(philo);
 			break ;
+		}
 		philo_think(philo);
 		philo_eat(philo);
 		philo_sleep(philo);
