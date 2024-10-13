@@ -6,7 +6,7 @@
 /*   By: mamichal <mamichal@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 17:51:07 by mamichal          #+#    #+#             */
-/*   Updated: 2024/10/13 13:32:33 by mamichal         ###   ########.fr       */
+/*   Updated: 2024/10/13 15:55:36 by mamichal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,16 @@ typedef enum e_time_code
 	MICROSECOND,
 }			t_time_code;
 
+typedef enum e_philo_status
+{
+	EATING,
+	SLEEPING,
+	THINGKING,
+	TOOK_1st_FORK,
+	TOOK_2nd_FORK,
+	DEAD,
+}			t_philo_status;
+
 typedef struct s_fork
 {
 	pthread_mutex_t	fork;
@@ -87,6 +97,7 @@ struct s_table
 	bool			end_flag;
 	bool			threads_ready;
 	pthread_mutex_t	table_mtx;
+	pthread_mutex_t	write_mtx;
 	t_fork			forks[PHILO_MAX];
 	t_philo			philos[PHILO_MAX];
 };
@@ -119,5 +130,8 @@ void	wait_threads(t_table *p_table);
 // time.c
 long	get_time(t_time_code time_code);
 void	precise_usleep(long usec, t_table *p_table);
+
+// write.c
+bool	write_philo_status(t_philo *philo, t_philo_status status);
 
 #endif
