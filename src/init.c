@@ -6,7 +6,7 @@
 /*   By: mamichal <mamichal@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 09:57:07 by mamichal          #+#    #+#             */
-/*   Updated: 2024/10/13 17:01:22 by mamichal         ###   ########.fr       */
+/*   Updated: 2024/10/13 17:42:58 by mamichal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ static void	assign_forks(t_philo *philo, t_fork *forks, int philo_position)
 {
 	int	philo_count;
 
-	/*
 	philo_count = philo->p_table->philo_count;
+	/*
 	philo->r_fork = &forks[philo_position];
 	philo->l_fork = &forks[(philo_position + 1) % philo_count];
 	*/
