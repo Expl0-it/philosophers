@@ -6,7 +6,7 @@
 /*   By: mamichal <mamichal@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 17:51:07 by mamichal          #+#    #+#             */
-/*   Updated: 2024/10/13 16:02:51 by mamichal         ###   ########.fr       */
+/*   Updated: 2024/10/13 16:24:30 by mamichal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,6 +120,10 @@ bool	set_int(pthread_mutex_t *mtx, int *dest, int value);
 bool	get_bool(pthread_mutex_t *mtx, bool *source);
 bool	set_bool(pthread_mutex_t *mtx, bool *dest, bool value);
 bool	get_end(t_table *table);
+
+// get_set_long.c
+long	get_long(pthread_mutex_t *mtx, long *source);
+bool	set_long(pthread_mutex_t *mtx, long *dest, long value);
 
 // init.c
 bool	data_init(t_table *p_table);
