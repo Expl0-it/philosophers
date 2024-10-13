@@ -6,7 +6,7 @@
 /*   By: mamichal <mamichal@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 17:51:07 by mamichal          #+#    #+#             */
-/*   Updated: 2024/10/08 12:02:24 by mamichal         ###   ########.fr       */
+/*   Updated: 2024/10/13 13:32:33 by mamichal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,5 +118,6 @@ void	wait_threads(t_table *p_table);
 
 // time.c
 long	get_time(t_time_code time_code);
+void	precise_usleep(long usec, t_table *p_table);
 
 #endif

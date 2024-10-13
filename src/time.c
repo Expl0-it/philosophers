@@ -6,7 +6,7 @@
 /*   By: mamichal <mamichal@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 11:38:04 by mamichal          #+#    #+#             */
-/*   Updated: 2024/10/08 11:59:03 by mamichal         ###   ########.fr       */
+/*   Updated: 2024/10/13 13:33:43 by mamichal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,25 @@ long	get_time(t_time_code time_code)
 		return ((tv.tv_sec * 1e6) + tv.tv_usec);
 	else
 		return (-1);
+}
+
+void	precise_usleep(long usec, t_table *p_table)
+{
+	long	start;
+	long	elapsed;
+	long	remaining;
+
+	start = get_time(MICROSECOND);
+	while (get_time(MICROSECOND) - start < usec)
+	{
+		if (true == get_end(p_table))
+			break ;
+		elapsed = get_time(MICROSECOND - start);
+		remaining = usec - elapsed;
+		if (remaining > 1e3)
+			usleep(remaining / 2);
+		else
+			while (get_time(MICROSECOND) - start < usec)
+				;
+	}
 }
