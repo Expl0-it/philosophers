@@ -6,7 +6,7 @@
 /*   By: mamichal <mamichal@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 17:51:07 by mamichal          #+#    #+#             */
-/*   Updated: 2024/10/13 15:55:36 by mamichal         ###   ########.fr       */
+/*   Updated: 2024/10/13 16:02:51 by mamichal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,8 +81,8 @@ typedef struct s_philo
 	bool			full;
 	bool			eating;
 	long			last_meal;
-	t_fork			*r_fork;
-	t_fork			*l_fork;
+	t_fork			*first_fork;
+	t_fork			*second_fork;
 	t_table			*p_table;
 }				t_philo;
 
