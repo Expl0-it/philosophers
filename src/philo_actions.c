@@ -6,7 +6,7 @@
 /*   By: mamichal <mamichal@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 15:50:05 by mamichal          #+#    #+#             */
-/*   Updated: 2024/10/13 17:18:16 by mamichal         ###   ########.fr       */
+/*   Updated: 2024/10/13 17:20:25 by mamichal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,13 @@ bool	philo_eat(t_philo *philo)
 			return (false);
 	if (false == handle_mutex(&philo->first_fork->fork, UNLOCK)
 			|| false == handle_mutex(&philo->second_fork->fork, UNLOCK))
+		return (false);
+	return (true);
+}
+
+bool	philo_think(t_philo *philo)
+{
+	if (false == write_philo_status(philo, THINGKING))
 		return (false);
 	return (true);
 }
