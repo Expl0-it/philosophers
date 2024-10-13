@@ -70,7 +70,7 @@ typedef struct s_philo
 	int				meals_eaten;
 	bool			full;
 	bool			eating;
-	size_t			last_meal;
+	long			last_meal;
 	t_fork			*r_fork;
 	t_fork			*l_fork;
 	t_table			*p_table;
@@ -79,11 +79,11 @@ typedef struct s_philo
 struct s_table
 {
 	int				philo_count;
-	size_t			time_to_die;
-	size_t			time_to_eat;
-	size_t			time_to_sleep;
+	long			time_to_die;
+	long			time_to_eat;
+	long			time_to_sleep;
 	int				meals_limit;
-	size_t			time_start;
+	long			time_start;
 	bool			end_flag;
 	bool			threads_ready;
 	pthread_mutex_t	table_mtx;
