@@ -6,7 +6,7 @@
 /*   By: mamichal <mamichal@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 18:08:42 by mamichal          #+#    #+#             */
-/*   Updated: 2024/10/13 18:28:21 by mamichal         ###   ########.fr       */
+/*   Updated: 2024/10/13 20:49:02 by mamichal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,11 @@ void	*philo_routine(void *data)
 	{
 		if (true == philo->full) // TODO: THread safe
 		{
-			philo_think(philo);
+
+			// NOTE: EITHER ONE OR THE OTHER
+
+			//philo_think(philo);
+			philo_full(philo);
 			break ;
 		}
 		philo_think(philo);

@@ -6,7 +6,7 @@
 /*   By: mamichal <mamichal@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 15:50:05 by mamichal          #+#    #+#             */
-/*   Updated: 2024/10/13 17:20:25 by mamichal         ###   ########.fr       */
+/*   Updated: 2024/10/13 20:51:07 by mamichal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,14 @@ bool	philo_eat(t_philo *philo)
 bool	philo_think(t_philo *philo)
 {
 	if (false == write_philo_status(philo, THINGKING))
+		return (false);
+	return (true);
+}
+
+// NOTE: Additional case when philo ate all the meals
+bool	philo_full(t_philo *philo)
+{
+	if (false == write_philo_status(philo, FULL))
 		return (false);
 	return (true);
 }

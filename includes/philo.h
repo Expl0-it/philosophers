@@ -6,7 +6,7 @@
 /*   By: mamichal <mamichal@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 17:51:07 by mamichal          #+#    #+#             */
-/*   Updated: 2024/10/13 17:52:53 by mamichal         ###   ########.fr       */
+/*   Updated: 2024/10/13 20:45:30 by mamichal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ typedef enum e_philo_status
 	TOOK_1_FORK,
 	TOOK_2_FORK,
 	DEAD,
+	FULL
 }			t_philo_status;
 
 typedef struct s_fork
@@ -147,5 +148,6 @@ bool	dinner_start(t_table *p_table);
 bool	philo_sleep(t_philo *philo);
 bool	philo_eat(t_philo *philo);
 bool	philo_think(t_philo *philo);
+bool	philo_full(t_philo *philo);
 
 #endif
