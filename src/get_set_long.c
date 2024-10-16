@@ -6,7 +6,7 @@
 /*   By: mamichal <mamichal@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 16:21:59 by mamichal          #+#    #+#             */
-/*   Updated: 2024/10/13 16:39:51 by mamichal         ###   ########.fr       */
+/*   Updated: 2024/10/16 14:00:13 by mamichal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,17 @@ bool	set_long(pthread_mutex_t *mtx, long *dest, long value)
 		return (false);
 	if (NULL != dest)
 		*dest = value;
+	if (false == handle_mutex(mtx, UNLOCK))
+		return (false);
+	return (true);
+}
+
+bool	increment_long(pthread_mutex_t *mtx, long *dest)
+{
+	if (false == handle_mutex(mtx, LOCK))
+		return (false);
+	if (NULL != dest)
+		*dest += 1;
 	if (false == handle_mutex(mtx, UNLOCK))
 		return (false);
 	return (true);
