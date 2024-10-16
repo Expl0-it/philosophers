@@ -6,7 +6,7 @@
 /*   By: mamichal <mamichal@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 17:51:07 by mamichal          #+#    #+#             */
-/*   Updated: 2024/10/13 20:45:30 by mamichal         ###   ########.fr       */
+/*   Updated: 2024/10/16 14:07:12 by mamichal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,10 +97,12 @@ struct s_table
 	long			time_to_sleep;
 	int				meals_limit;
 	long			time_start;
+	long			nb_threads_active;
 	bool			end_flag;
 	bool			threads_ready;
 	pthread_mutex_t	table_mtx;
 	pthread_mutex_t	write_mtx;
+	pthread_t		waiter;
 	t_fork			forks[PHILO_MAX];
 	t_philo			philos[PHILO_MAX];
 };
@@ -133,6 +135,8 @@ bool	data_init(t_table *p_table);
 
 // synchro.c
 void	wait_threads(t_table *p_table);
+bool	all_threads_active(pthread_mutex_t *mtx, long *nb_threads, \
+				int philo_count);
 
 // time.c
 long	get_time(t_time_code time_code);
