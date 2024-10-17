@@ -32,12 +32,12 @@ void	*philo_routine(void *data)
 
 	philo = (t_philo *)data;
 	wait_threads(philo->p_table);
-	// TODO: Set last meal time
+	set_long(&philo->philo_mtx, &philo->last_meal, get_time(MILLISECOND));
+	increment_long(&philo->p_table->table_mtx, &philo->p_table->nb_threads_active);
 	while (false == get_end(philo->p_table))
 	{
 		if (true == philo->full) // TODO: THread safe
 		{
-
 			// NOTE: EITHER ONE OR THE OTHER
 
 			//philo_think(philo);
