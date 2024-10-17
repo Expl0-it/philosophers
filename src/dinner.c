@@ -11,6 +11,20 @@
 /* ************************************************************************** */
 
 #include "../includes/philo.h"
+void	*lone_philo(void *data)
+{
+	t_philo	*philo;
+
+	philo = (t_philo *)data;
+	wait_threads(philo->p_table);
+	set_long(&philo->philo_mtx, &philo->last_meal, get_time(MILLISECOND));
+	increment_long(&philo->p_table->table_mtx, &philo->p_table->nb_threads_active);
+	write_philo_status(philo, THINGKING);
+	write_philo_status(philo, TOOK_1_FORK);
+	while (false == get_end(philo->p_table))
+		;
+	return (NULL);
+}
 
 void	*philo_routine(void *data)
 {
