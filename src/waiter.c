@@ -6,7 +6,7 @@
 /*   By: mamichal <mamichal@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 13:40:07 by mamichal          #+#    #+#             */
-/*   Updated: 2024/10/16 14:52:08 by mamichal         ###   ########.fr       */
+/*   Updated: 2024/10/17 08:20:20 by mamichal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,11 @@ void	*monitor_dinner(void *data)
 		{
 			if (true == is_dead(&p_table->philos[i]))
 			{
-				set_bool(&p_table->table_mtx, &p_table->end_flag, true);
 				write_philo_status(&p_table->philos[i], DEAD);
+				set_bool(&p_table->table_mtx, &p_table->end_flag, true);
 			}
 			i++;
 		}
 	}
-
-
 	return (NULL);
 }
