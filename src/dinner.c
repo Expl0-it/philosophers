@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "../includes/philo.h"
+
 void	*lone_philo(void *data)
 {
 	t_philo	*philo;
@@ -85,8 +86,14 @@ bool	dinner_start(t_table *p_table)
 {
 	if (0 == p_table->meals_limit)
 		return (true);
-	else if (1 == p_table->meals_limit)
-		;// TODO:
+	if (false == handle_thread(&p_table->waiter, monitor_dinner, p_table, CREATE))
+		return (false);
+	if (1 == p_table->meals_limit)
+	{
+		if (false == handle_thread(&p_table->philos[0].thread, \
+				lone_philo, &p_table->philos[0], CREATE))
+			return (false);
+	}
 	else
 	{
 		if (false == create_threads(p_table))
