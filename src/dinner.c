@@ -6,7 +6,7 @@
 /*   By: mamichal <mamichal@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 18:08:42 by mamichal          #+#    #+#             */
-/*   Updated: 2024/10/13 20:49:02 by mamichal         ###   ########.fr       */
+/*   Updated: 2024/10/17 08:33:55 by mamichal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,8 @@ bool	dinner_start(t_table *p_table)
 			return (false);
 		set_bool(&p_table->table_mtx, &p_table->threads_ready, true);
 		join_threads(p_table);
+		set_bool(&p_table->table_mtx, &p_table->end_flag, true);
+		handle_thread(&p_table->waiter, NULL, NULL, JOIN);
 	}
 	return (true);
 }
