@@ -6,7 +6,7 @@
 /*   By: mamichal <mamichal@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 17:51:07 by mamichal          #+#    #+#             */
-/*   Updated: 2024/10/17 08:16:48 by mamichal         ###   ########.fr       */
+/*   Updated: 2024/10/20 19:35:08 by mamichal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,10 +152,13 @@ bool	dinner_start(t_table *p_table);
 // philo_actions.c
 bool	philo_sleep(t_philo *philo);
 bool	philo_eat(t_philo *philo);
-bool	philo_think(t_philo *philo);
+bool	philo_think(t_philo *philo, bool first_time);
 bool	philo_full(t_philo *philo);
 
 // waiter.c
 void	*monitor_dinner(void *data);
+
+// cleanup.c
+void	cleanup(t_table *p_table);
 
 #endif

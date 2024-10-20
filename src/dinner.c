@@ -6,7 +6,7 @@
 /*   By: mamichal <mamichal@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 18:08:42 by mamichal          #+#    #+#             */
-/*   Updated: 2024/10/20 18:47:18 by mamichal         ###   ########.fr       */
+/*   Updated: 2024/10/20 20:16:05 by mamichal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ void	*philo_routine(void *data)
 	wait_threads(philo->p_table);
 	set_long(&philo->philo_mtx, &philo->last_meal, get_time(MILLISECOND));
 	increment_long(&philo->p_table->table_mtx, &philo->p_table->nb_threads_active);
+	if (false == get_end(philo->p_table))
+		philo_think(philo, true);
 	while (false == get_end(philo->p_table))
 	{
 		if (true == philo->full) // TODO: THread safe
@@ -45,9 +47,9 @@ void	*philo_routine(void *data)
 			philo_full(philo);
 			break ;
 		}
-		philo_think(philo);
 		philo_eat(philo);
 		philo_sleep(philo);
+		philo_think(philo, false);
 	}
 	return (NULL);
 }
