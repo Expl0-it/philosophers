@@ -6,7 +6,7 @@
 /*   By: mamichal <mamichal@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 09:57:07 by mamichal          #+#    #+#             */
-/*   Updated: 2024/10/16 13:53:51 by mamichal         ###   ########.fr       */
+/*   Updated: 2024/10/20 20:12:00 by mamichal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,8 @@ bool	data_init(t_table *p_table)
 	if (false == philo_init(p_table))
 		return (false);
 	if (false == handle_mutex(&p_table->table_mtx, INIT))
+		return (false);
+	if (false == handle_mutex(&p_table->write_mtx, INIT))
 		return (false);
 	return (true);
 }
