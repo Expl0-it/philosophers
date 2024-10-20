@@ -6,7 +6,7 @@
 /*   By: mamichal <mamichal@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 15:50:05 by mamichal          #+#    #+#             */
-/*   Updated: 2024/10/13 20:51:07 by mamichal         ###   ########.fr       */
+/*   Updated: 2024/10/20 19:39:51 by mamichal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,24 @@ bool	philo_eat(t_philo *philo)
 	return (true);
 }
 
-bool	philo_think(t_philo *philo)
+// NOTE: Making the system fair by forcing thinking time when
+// there is an odd number of philos
+bool	philo_think(t_philo *philo, bool first_time)
 {
+	long	t_eat;
+	long	t_sleep;
+	long	t_think;
+
 	if (false == write_philo_status(philo, THINGKING))
 		return (false);
+	if (0 == philo->p_table->philo_count % 2 || true == first_time)
+		return (true);
+	t_eat = philo->p_table->time_to_eat;
+	t_sleep = philo->p_table->time_to_sleep;
+	t_think = (t_eat * 2) - t_sleep;
+	if (t_think < 0)
+		t_think = 0;
+	precise_usleep(t_think * 0.5, philo->p_table);
 	return (true);
 }
 
