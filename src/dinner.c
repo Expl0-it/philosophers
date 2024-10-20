@@ -6,7 +6,7 @@
 /*   By: mamichal <mamichal@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 18:08:42 by mamichal          #+#    #+#             */
-/*   Updated: 2024/10/17 08:33:55 by mamichal         ###   ########.fr       */
+/*   Updated: 2024/10/20 18:47:18 by mamichal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,8 @@ bool	dinner_start(t_table *p_table)
 {
 	if (0 == p_table->meals_limit)
 		return (true);
-	if (false == handle_thread(&p_table->waiter, monitor_dinner, p_table, CREATE))
+	if (false == handle_thread(&p_table->waiter, \
+				monitor_dinner, p_table, CREATE))
 		return (false);
 	if (1 == p_table->meals_limit)
 	{
