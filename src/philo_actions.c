@@ -35,6 +35,8 @@ bool	philo_eat(t_philo *philo)
 		return (false);
 	precise_usleep(philo->p_table->time_to_eat, philo->p_table);
 	if (philo->p_table->meals_limit > 0 && philo->meals_eaten > philo->p_table->meals_limit)
+	if (philo->p_table->meals_limit > 0 \
+		&& philo->meals_eaten >= philo->p_table->meals_limit)
 		if (false == set_bool(&philo->philo_mtx, &philo->full, true))
 			return (false);
 	if (false == handle_mutex(&philo->first_fork->fork, UNLOCK)
