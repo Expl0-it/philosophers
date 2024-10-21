@@ -91,7 +91,7 @@ bool	dinner_start(t_table *p_table)
 	if (false == handle_thread(&p_table->waiter, \
 				monitor_dinner, p_table, CREATE))
 		return (false);
-	if (1 == p_table->meals_limit)
+	if (1 == p_table->philo_count)
 	{
 		if (false == handle_thread(&p_table->philos[0].thread, \
 				lone_philo, &p_table->philos[0], CREATE))
