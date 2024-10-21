@@ -101,13 +101,13 @@ bool	dinner_start(t_table *p_table)
 	{
 		if (false == create_threads(p_table))
 			return (false);
-		p_table->time_start = get_time(MILLISECOND);
-		if (-1 == p_table->time_start)
-			return (false);
-		set_bool(&p_table->table_mtx, &p_table->threads_ready, true);
-		join_threads(p_table);
-		set_bool(&p_table->table_mtx, &p_table->end_flag, true);
-		handle_thread(&p_table->waiter, NULL, NULL, JOIN);
 	}
+	p_table->time_start = get_time(MILLISECOND);
+	if (-1 == p_table->time_start)
+		return (false);
+	set_bool(&p_table->table_mtx, &p_table->threads_ready, true);
+	join_threads(p_table);
+	set_bool(&p_table->table_mtx, &p_table->end_flag, true);
+	handle_thread(&p_table->waiter, NULL, NULL, JOIN);
 	return (true);
 }
