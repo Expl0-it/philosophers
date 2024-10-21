@@ -6,7 +6,7 @@
 /*   By: mamichal <mamichal@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 15:50:05 by mamichal          #+#    #+#             */
-/*   Updated: 2024/10/20 19:39:51 by mamichal         ###   ########.fr       */
+/*   Updated: 2024/10/21 14:36:09 by mamichal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,24 +23,25 @@ bool	philo_sleep(t_philo *philo)
 bool	philo_eat(t_philo *philo)
 {
 	if (false == handle_mutex(&philo->first_fork->fork, LOCK)
-			|| false == write_philo_status(philo, TOOK_1_FORK))
+		|| false == write_philo_status(philo, TOOK_1_FORK))
 		return (false);
 	if (false == handle_mutex(&philo->second_fork->fork, LOCK)
-			|| false == write_philo_status(philo, TOOK_2_FORK))
+		|| false == write_philo_status(philo, TOOK_2_FORK))
 		return (false);
-	if (false == set_long(&philo->philo_mtx, &philo->last_meal, get_time(MILLISECOND)))
+	if (false == set_long(&philo->philo_mtx, &philo->last_meal, \
+			get_time(MILLISECOND)))
 		return (false);
 	philo->meals_eaten++;
 	if (false == write_philo_status(philo, EATING))
 		return (false);
-	precise_usleep(philo->p_table->time_to_eat, philo->p_table);
-	if (philo->p_table->meals_limit > 0 && philo->meals_eaten > philo->p_table->meals_limit)
+	precise_usleep(philo->p_table->time_to_eat, \
+			philo->p_table);
 	if (philo->p_table->meals_limit > 0 \
 		&& philo->meals_eaten >= philo->p_table->meals_limit)
 		if (false == set_bool(&philo->philo_mtx, &philo->full, true))
 			return (false);
 	if (false == handle_mutex(&philo->first_fork->fork, UNLOCK)
-			|| false == handle_mutex(&philo->second_fork->fork, UNLOCK))
+		|| false == handle_mutex(&philo->second_fork->fork, UNLOCK))
 		return (false);
 	return (true);
 }
@@ -62,7 +63,7 @@ bool	philo_think(t_philo *philo, bool first_time)
 	t_think = (t_eat * 2) - t_sleep;
 	if (t_think < 0)
 		t_think = 0;
-	precise_usleep(t_think * 0.5, philo->p_table);
+	precise_usleep(t_think * 0.1, philo->p_table);
 	return (true);
 }
 

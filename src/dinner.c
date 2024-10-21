@@ -6,7 +6,7 @@
 /*   By: mamichal <mamichal@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 18:08:42 by mamichal          #+#    #+#             */
-/*   Updated: 2024/10/20 20:16:05 by mamichal         ###   ########.fr       */
+/*   Updated: 2024/10/21 14:33:45 by mamichal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ void	*lone_philo(void *data)
 	philo = (t_philo *)data;
 	wait_threads(philo->p_table);
 	set_long(&philo->philo_mtx, &philo->last_meal, get_time(MILLISECOND));
-	increment_long(&philo->p_table->table_mtx, &philo->p_table->nb_threads_active);
+	increment_long(&philo->p_table->table_mtx, \
+			&philo->p_table->nb_threads_active);
 	write_philo_status(philo, THINGKING);
 	write_philo_status(philo, TOOK_1_FORK);
 	while (false == get_end(philo->p_table))
@@ -34,16 +35,14 @@ void	*philo_routine(void *data)
 	philo = (t_philo *)data;
 	wait_threads(philo->p_table);
 	set_long(&philo->philo_mtx, &philo->last_meal, get_time(MILLISECOND));
-	increment_long(&philo->p_table->table_mtx, &philo->p_table->nb_threads_active);
+	increment_long(&philo->p_table->table_mtx, \
+			&philo->p_table->nb_threads_active);
 	if (false == get_end(philo->p_table))
 		philo_think(philo, true);
 	while (false == get_end(philo->p_table))
 	{
 		if (true == get_bool(&philo->philo_mtx, &philo->full))
 		{
-			// NOTE: EITHER ONE OR THE OTHER
-
-			//philo_think(philo);
 			philo_full(philo);
 			break ;
 		}
