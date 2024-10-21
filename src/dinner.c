@@ -39,7 +39,7 @@ void	*philo_routine(void *data)
 		philo_think(philo, true);
 	while (false == get_end(philo->p_table))
 	{
-		if (true == philo->full) // TODO: THread safe
+		if (true == get_bool(&philo->philo_mtx, &philo->full))
 		{
 			// NOTE: EITHER ONE OR THE OTHER
 
