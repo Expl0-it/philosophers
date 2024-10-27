@@ -6,7 +6,7 @@
 /*   By: mamichal <mamichal@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 15:50:05 by mamichal          #+#    #+#             */
-/*   Updated: 2024/10/21 14:36:09 by mamichal         ###   ########.fr       */
+/*   Updated: 2024/10/27 16:34:50 by mamichal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,4 +73,11 @@ bool	philo_full(t_philo *philo)
 	if (false == write_philo_status(philo, FULL))
 		return (false);
 	return (true);
+}
+
+void	desynchronize(t_philo *philo)
+{
+	philo_think(philo, true);
+	if (philo->id % 2 == 0)
+		precise_usleep(1e4, philo->p_table);
 }
