@@ -6,7 +6,7 @@
 /*   By: mamichal <mamichal@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 18:08:42 by mamichal          #+#    #+#             */
-/*   Updated: 2024/10/21 14:33:45 by mamichal         ###   ########.fr       */
+/*   Updated: 2024/10/27 16:04:23 by mamichal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	*philo_routine(void *data)
 	increment_long(&philo->p_table->table_mtx, \
 			&philo->p_table->nb_threads_active);
 	if (false == get_end(philo->p_table))
-		philo_think(philo, true);
+		desynchronize(philo);
 	while (false == get_end(philo->p_table))
 	{
 		if (true == get_bool(&philo->philo_mtx, &philo->full))
