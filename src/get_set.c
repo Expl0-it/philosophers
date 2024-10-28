@@ -6,7 +6,7 @@
 /*   By: mamichal <mamichal@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 08:56:06 by mamichal          #+#    #+#             */
-/*   Updated: 2024/10/07 12:34:51 by mamichal         ###   ########.fr       */
+/*   Updated: 2024/10/28 15:52:04 by mamichal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int	get_int(pthread_mutex_t *mtx, int *source)
 {
 	int	ret;
 
+	ret = -1;
 	handle_mutex(mtx, LOCK);
 	if (NULL != source)
 		ret = *source;
@@ -38,6 +39,7 @@ bool	get_bool(pthread_mutex_t *mtx, bool *source)
 {
 	bool	ret;
 
+	ret = false;
 	handle_mutex(mtx, LOCK);
 	if (NULL != source)
 		ret = *source;

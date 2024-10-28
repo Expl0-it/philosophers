@@ -6,7 +6,7 @@
 /*   By: mamichal <mamichal@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 16:21:59 by mamichal          #+#    #+#             */
-/*   Updated: 2024/10/16 14:00:13 by mamichal         ###   ########.fr       */
+/*   Updated: 2024/10/28 15:52:23 by mamichal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ long	get_long(pthread_mutex_t *mtx, long *source)
 {
 	long	ret;
 
+	ret = -1;
 	handle_mutex(mtx, LOCK);
 	if (NULL != source)
 		ret = *source;
